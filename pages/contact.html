@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact & Accès — The Klassiker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts + Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/style/style.css" />
+  <link rel="shortcut icon" href="assets/images/logo.png" />
+</head>
+
+<body class="page-contact">
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <img src="/assets/images/logo.png" alt="Logo The Klassiker">
+        <span class="brand-text">
+          <span class="brand-name">The Klassiker</span>
+          <span class="brand-tagline">Smash burgers & kebabs</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="/index.html#accueil" class="nav-link">Accueil</a>
+        <a href="/index.html#carte" class="nav-link">Notre carte</a>
+        <a href="/index.html#galerie" class="nav-link">Galerie</a>
+        <a href="/pages/contact.html" class="nav-link active">Contact</a>
+        <a href="/pages/recrutement.html" class="nav-link">Recrutement</a>
+        <a href="/index.html#commander" class="nav-link nav-cta">Commander</a>
+
+        <div class="nav-social-mobile">
+          <div class="social-links">
+            <a href="https://www.facebook.com/p/The-Klassiker-100070645848253/?locale=fr_FR" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/theklassiker/#" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@the.klassiker" target="_blank">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+          <p class="nav-copy">© 2025 The Klassiker</p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO CONTACT -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div>
+          <p class="section-kicker">Contact & accès</p>
+          <h1>On répond vite à tes questions</h1>
+          <p class="section-subtitle">
+            Une privatisation, une grosse commande ou juste une info rapide ?
+            Écris-nous ou passe directement au restaurant.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT GRID -->
+    <section class="section section-beige">
+      <div class="contact-grid-modern">
+        <!-- FORMULAIRE -->
+        <article class="contact-card">
+          <h2>Écrivez-nous</h2>
+          <p class="contact-intro">
+            Ce formulaire arrive directement dans notre boîte mail. On revient vers toi dès que possible.
+          </p>
+
+          <!-- Tu peux brancher Formspree ici si tu veux -->
+          <form class="contact-form" action="https://formspree.io/f/xrbrnble" method="POST">
+            <div class="form-group">
+              <label for="name">Nom</label>
+              <input id="name" name="name" type="text" placeholder="Votre nom" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Votre email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Envoyer le message</button>
+          </form>
+
+          <p class="form-note">
+            En envoyant ce message, vous acceptez d’être recontacté par The Klassiker.
+          </p>
+        </article>
+
+        <!-- INFOS + MAP -->
+        <article class="contact-card contact-card-dark">
+          <h2>Nous trouver</h2>
+          <div class="contact-infos">
+            <p><strong>Adresse</strong><br>12 Cours Monseigneur Roméro<br>91000 Évry-Courcouronnes</p>
+            <p><strong>Téléphone</strong><br><a href="tel:0164993777">01 64 99 37 77</a></p>
+            <p><strong>Email</strong><br><a href="mailto:the.klassiker@gmail.com">the.klassiker@gmail.com</a></p>
+            <p><strong>Horaires</strong><br>
+              Lundi au jeudi : 11h00 – 23h00<br>
+              Vendredi : 11h00 – 13h00 / 14h30 – 00h00<br>
+              Samedi & dimanche : 11h00 – 00h00
+            </p>
+          </div>
+
+          <div id="map" class="leaflet-map"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2025 The Klassiker — Tous droits réservés</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/p/The-Klassiker-100070645848253/?locale=fr_FR" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/theklassiker/#" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@the.klassiker" target="_blank">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="/assets/js/script.js" defer></script>
+
+  <script>
+    // Init Leaflet (coordonnées Évry-Courcouronnes)
+    const evryCoords = [48.6239, 2.4289];
+    const map = L.map('map').setView(evryCoords, 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker(evryCoords)
+      .addTo(map)
+      .bindPopup('The Klassiker — Évry-Courcouronnes');
+  </script>
+</body>
+</html>

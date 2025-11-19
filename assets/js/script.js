@@ -1,3 +1,47 @@
+// ================== IMPORTS IMAGES (VITE) ==================
+import img1 from "/assets/images/galerie-1.jpg";
+import img2 from "/assets/images/galerie-25.jpg";
+import img3 from "/assets/images/galerie-3.jpg";
+import img4 from "/assets/images/galerie-4.jpg";
+import img5 from "/assets/images/galerie-5.jpg";
+import img6 from "/assets/images/galerie-6.jpg";
+import img7 from "/assets/images/galerie-7.jpg";
+import img8 from "/assets/images/galerie-8.jpg";
+import img9 from "/assets/images/galerie-9.jpg";
+import img10 from "/assets/images/galerie-10.jpg";
+import img11 from "/assets/images/galerie-11.jpg";
+import img12 from "/assets/images/galerie-12.jpg";
+import img13 from "/assets/images/galerie-13.jpg";
+import img14 from "/assets/images/galerie-14.jpg";
+import img15 from "/assets/images/galerie-15.jpg";
+import img16 from "/assets/images/galerie-16.jpg";
+import img17 from "/assets/images/galerie-17.jpg";
+import img18 from "/assets/images/galerie-18.jpg";
+
+// tableau d’images utilisé par la galerie
+const galleryImages = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
+  img15,
+  img16,
+  img17,
+  img18,
+];
+
+// ================== SCRIPT PRINCIPAL ==================
+
 document.addEventListener("DOMContentLoaded", () => {
   // ============ MENU BURGER (simplifié) ============
   const burgerBtn = document.querySelector(".nav-toggle");
@@ -32,10 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 👇 laisse tout le reste de ton script.js tel quel
-  // (setActiveLink, Voir tout le menu, Galerie, Lightbox, Animations scroll, etc.)
-
-
   // ============ ACTIF NAV (simple) ============
   const setActiveLink = () => {
     const path = window.location.pathname;
@@ -43,7 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const href = link.getAttribute("href");
       if (!href) return;
 
-      // Pour tes pages /pages/contact.html et /pages/recrutement.html
       if (path.endsWith("contact.html") && href.includes("contact.html")) {
         link.classList.add("active");
       } else if (path.endsWith("recrutement.html") && href.includes("recrutement.html")) {
@@ -53,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   setActiveLink();
 
-  // ============ VOIR TOUT LE MENU ============ 
+  // ============ VOIR TOUT LE MENU ============
   const toggleCarteBtn = document.getElementById("toggleCarte");
   const hiddenCards = document.querySelectorAll(".food-card-hidden");
   let carteExpanded = false;
@@ -82,28 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxClose = document.getElementById("galleryLightboxClose");
   const lightboxBackdrop = document.getElementById("galleryLightboxBackdrop");
 
-  // liste complète des images
-  const galleryImages = [
-    "assets/images/galerie-1.jpg",
-    "assets/images/galerie-25.jpg",
-    "assets/images/galerie-3.jpg",
-    "assets/images/galerie-4.jpg",
-    "assets/images/galerie-5.jpg",
-    "assets/images/galerie-6.jpg",
-    "assets/images/galerie-7.jpg",
-    "assets/images/galerie-8.jpg",
-    "assets/images/galerie-9.jpg",
-    "assets/images/galerie-10.jpg",
-    "assets/images/galerie-11.jpg",
-    "assets/images/galerie-12.jpg",
-    "assets/images/galerie-13.jpg",
-    "assets/images/galerie-14.jpg",
-    "assets/images/galerie-15.jpg",
-    "assets/images/galerie-16.jpg",
-    "assets/images/galerie-17.jpg",
-    "assets/images/galerie-18.jpg",
-  ];
-
   let currentIndex = 0;
   const SLIDE_DELAY = 5000;
   let autoSlideInterval;
@@ -117,7 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function showImage(index) {
     if (!galleryMain || galleryImages.length === 0) return;
 
-    currentIndex = (index + galleryImages.length) % galleryImages.length;
+    const total = galleryImages.length;
+    currentIndex = ((index % total) + total) % total; // boucle infinie
 
     galleryMain.classList.add("is-fading");
 
@@ -153,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Lightbox helpers
   function openLightbox() {
-    if (!lightbox || !lightboxImg) return;
+    if (!lightbox || !lightboxImg || galleryImages.length === 0) return;
     lightboxImg.src = galleryImages[currentIndex];
     lightbox.classList.add("is-open");
     document.body.classList.add("no-scroll");
@@ -167,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     lightbox.setAttribute("aria-hidden", "true");
   }
 
-  if (galleryMain) {
+  if (galleryMain && thumbs.length > 0) {
     // thumbs clic
     thumbs.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -213,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoSlide();
   }
 
-  // ============ ANIMATIONS AU SCROLL ============ 
+  // ============ ANIMATIONS AU SCROLL ============
   const animated = document.querySelectorAll("[data-animate]");
 
   if ("IntersectionObserver" in window && animated.length > 0) {

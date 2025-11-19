@@ -22,6 +22,12 @@
   box-sizing: border-box;
 }
 
+/* GLOBAL */
+html,
+body {
+  overscroll-behavior: none;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -29,6 +35,13 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   scroll-behavior: smooth;
+}
+
+/* Quand le menu ou une lightbox est ouvert(e) */
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+  touch-action: none;
 }
 
 img {
@@ -45,7 +58,7 @@ a {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   backdrop-filter: blur(14px);
   background: linear-gradient(90deg, rgba(11,27,50,0.96), rgba(154,21,21,0.9));
   border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -88,7 +101,7 @@ a {
   color: rgba(255, 248, 232, .75);
 }
 
-/* NAV */
+/* NAV (desktop par défaut) */
 .main-nav {
   display: flex;
   align-items: center;
@@ -131,14 +144,13 @@ a {
   background: var(--color-yellow-alt);
 }
 
-/* Bouton burger (style comme ton ancien projet) */
+/* Bouton burger */
 .nav-toggle {
   display: none;
   background: none;
   border: none;
   padding: 6px;
   cursor: pointer;
-  z-index: 10000; /* important pour être au-dessus du menu */
 }
 
 .nav-toggle span {
@@ -151,7 +163,7 @@ a {
   transition: transform .35s ease, opacity .35s ease;
 }
 
-/* ========== ÉTAT OUVERT : BURGER → CROIX ========== */
+/* Burger → Croix */
 .nav-toggle.burger-open span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -163,15 +175,6 @@ a {
 .nav-toggle.burger-open span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
-
-/* visible en mobile */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: inline-block;
-  }
-}
-
-
 
 /* ================= HERO ================= */
 .hero-section {
@@ -273,19 +276,17 @@ a {
   animation: floatBurger 4.5s ease-in-out infinite;
 }
 
-/* Animation flottante comme ton ancien modèle */
 @keyframes floatBurger {
   0% {
     transform: translateY(6px);
   }
   50% {
-    transform: translateY(-12px); /* monte */
+    transform: translateY(-12px);
   }
   100% {
     transform: translateY(6px);
   }
 }
-
 
 .hero-highlight {
   position: absolute;
@@ -304,7 +305,6 @@ a {
   font-weight: 700;
   margin-bottom: 4px;
 }
-
 
 /* ================= BUTTONS ================= */
 .btn {
@@ -457,16 +457,15 @@ a {
   color: rgba(255,248,232,.8);
 }
 
-/* ================= CARDS / CARTE ================= */
+/* ================= CARDS ================= */
 .cards-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    gap: 22px;
-    grid-template-columns: repeat(4, 1fr); /* ⭐ 4 colonnes = 4 produits alignés */
-    width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
 }
-
 
 .food-card {
   background: #fff;
@@ -550,7 +549,6 @@ a {
 }
 
 /* ================= GALERIE ================= */
-
 .gallery {
   max-width: 1100px;
   margin: 0 auto;
@@ -558,7 +556,6 @@ a {
   gap: 16px;
 }
 
-/* Nouveau wrapper pour les flèches + image */
 .gallery-main-wrap {
   position: relative;
   display: grid;
@@ -569,23 +566,20 @@ a {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-light);
-  max-height: 480px; /* tu peux même enlever cette ligne si tu veux zéro coupe */
+  max-height: 480px;
 }
 
 .gallery-main img {
-  height: 300px;              /* ✅ plus de hauteur forcée */
-  object-fit: contain;       /* ✅ l’image est entière, plus recadrée */
-  background: #000;          /* optionnel, pour les bandes noires autour si besoin */
+  height: 300px;
+  object-fit: contain;
+  background: #000;
   transition: opacity .5s ease;
 }
 
-
-/* effet fade comme dans ton script d’origine */
 .gallery-main img.is-fading {
   opacity: 0;
 }
 
-/* Flèches */
 .gallery-arrow {
   position: absolute;
   top: 50%;
@@ -610,7 +604,6 @@ a {
   right: 12px;
 }
 
-/* Thumbs : déjà présentes dans mon modèle mais on vérifie */
 .gallery-thumbs {
   display: grid;
   grid-auto-flow: column;
@@ -708,7 +701,6 @@ a {
 }
 
 /* ================= GALERIE LIGHTBOX ================= */
-
 .gallery-lightbox {
   position: fixed;
   inset: 0;
@@ -762,11 +754,6 @@ a {
   display: grid;
   place-items: center;
 }
-
-body.no-scroll {
-  overflow: hidden;
-}
-
 
 /* ================= PAGE HERO (contact + recrutement) ================= */
 .page-hero {
@@ -873,8 +860,7 @@ body.no-scroll {
   overflow: hidden;
 }
 
-/* ================= PAGE RECRUTEMENT (version comme ton ancienne) ================= */
-
+/* ================= PAGE RECRUTEMENT ================= */
 .recrutement-page-section {
   background-color: #9A1515;
   padding: 60px 16px 80px;
@@ -914,7 +900,6 @@ body.no-scroll {
   margin-bottom: 6px;
 }
 
-/* bloc de droite (comme ton wrapper formulaire) */
 .recrutement-form-wrapper {
   background: #0B1B32;
   border-radius: 18px;
@@ -928,14 +913,6 @@ body.no-scroll {
   font-size: 0.9rem;
   color: #FFEED0;
 }
-
-/* responsive */
-@media (max-width: 960px) {
-  .recrutement-page-inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 
 /* ================= FOOTER ================= */
 .site-footer {
@@ -963,7 +940,6 @@ body.no-scroll {
   font-size: 1rem;
 }
 
-/* Mobile-only nav social */
 .nav-social-mobile {
   display: none;
   flex-direction: column;
@@ -994,11 +970,9 @@ body.no-scroll {
 }
 
 /* ================= RESPONSIVE ================= */
-/* ================= RESPONSIVE ================= */
 
-/* === ≤ 960px (tablette paysage) === */
+/* ≤ 960px */
 @media (max-width: 960px) {
-
   .hero-inner {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1015,69 +989,35 @@ body.no-scroll {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Carte : 2 colonnes */
   .cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* Infos pratiques : 2 colonnes */
   .info-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* Commander : 2 colonnes */
   .order-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* Recrutement page : 1 colonne */
   .recrutement-page-inner {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Contact : 1 colonne */
   .contact-grid-modern {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 
-/* === ≤ 768px (tablette portrait / mobile) === */
+/* ≤ 768px */
 @media (max-width: 768px) {
-
   .header-inner {
     padding-inline: 14px;
   }
 
   .brand img {
     height: 56px;
-  }
-
-  /* NAV MOBILE pleine page avec fond bien opaque */
-  .main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(circle at top, #0B1B32 0, #9A1515 65%, #000 100%);
-    /* si tu veux VRAIMENT qu’on ne voie rien derrière : 
-       remplace la ligne du dessus par : background: #050814; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    transform: translateX(100%);
-    transition: transform .35s ease;
-    z-index: 9999; /* bien au-dessus de tout */
-  }
-
-  .main-nav.is-open {
-    transform: translateX(0);
-  }
-
-  .nav-toggle {
-    display: inline-block;
   }
 
   .nav-link {
@@ -1121,10 +1061,8 @@ body.no-scroll {
   }
 }
 
-
-/* === ≤ 480px (petit mobile) === */
+/* ≤ 480px */
 @media (max-width: 480px) {
-
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
@@ -1134,58 +1072,14 @@ body.no-scroll {
     padding: 16px;
   }
 
-  .order-card {
-    text-align: center;
-  }
-
+  .order-card,
   .info-block {
     text-align: center;
   }
 }
 
-/* ================= TABLETTE 769px → 1024px ================= */
+/* 769px → 1024px (tablette) */
 @media (min-width: 769px) and (max-width: 1024px) {
-
-  /* ========= NAVIGATION ========= */
-
-  /* Burger visible */
-  .nav-toggle {
-    display: inline-block;
-  }
-
-  /* Menu mobile en plein écran (même logique que mobile) */
-  .main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(circle at top, #0B1B32 0, #9A1515 65%, #000 100%);
-    transform: translateX(100%);
-    transition: transform .35s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
-    z-index: 9999;
-  }
-
-  .main-nav.is-open {
-    transform: translateX(0);
-  }
-
-  /* Réseaux + copyright visibles */
-  .nav-social-mobile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-  }
-
-
-  /* ========= HERO ========= */
-
   .hero-section {
     padding: 40px 24px 60px;
   }
@@ -1205,18 +1099,12 @@ body.no-scroll {
     padding: 20px;
   }
 
-
-  /* ========= CONCEPT ========= */
-
   .section-inner {
     max-width: 1020px;
     margin: 0 auto;
     grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
     gap: 36px;
   }
-
-
-  /* ========= CARTE ========= */
 
   .cards-grid {
     max-width: 1020px;
@@ -1229,9 +1117,6 @@ body.no-scroll {
     height: 200px;
   }
 
-
-  /* ========= GALERIE ========= */
-
   .gallery {
     max-width: 1020px;
   }
@@ -1240,26 +1125,17 @@ body.no-scroll {
     max-height: 380px;
   }
 
-
-  /* ========= INFOS PRATIQUES ========= */
-
   .info-grid {
     max-width: 1020px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
   }
 
-
-  /* ========= COMMANDER ========= */
-
   .order-grid {
     max-width: 900px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
   }
-
-
-  /* ========= CONTACT ========= */
 
   .contact-grid-modern {
     max-width: 1020px;
@@ -1272,18 +1148,12 @@ body.no-scroll {
     min-height: 280px;
   }
 
-
-  /* ========= RECRUTEMENT ========= */
-
   .recrutement-page-inner {
     max-width: 1020px;
     margin: 0 auto;
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     gap: 30px;
   }
-
-
-  /* ========= LIVRAISON ========= */
 
   .delivery-inner {
     max-width: 1020px;
@@ -1292,4 +1162,71 @@ body.no-scroll {
     text-align: center;
     row-gap: 10px;
   }
+}
+
+/* ========= NAV MOBILE + TABLETTE (jusqu'à 1024px) ========= */
+@media (max-width: 1024px) {
+
+  .header-inner {
+    padding-inline: 14px;
+  }
+
+  .brand img {
+    height: 56px;
+  }
+
+  /* MENU OVERLAY PLEIN ÉCRAN */
+  .main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at top, #0B1B32 0, #9A1515 65%, #000 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    transform: translateX(100%);
+    transition: transform .35s ease;
+    z-index: 9999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .main-nav.is-open {
+    transform: translateX(0);
+  }
+
+  .nav-toggle {
+    display: inline-block;
+    position: relative;
+    z-index: 10000;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .nav-cta {
+    margin-top: 10px;
+  }
+
+  .nav-social-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+}
+
+/* Leaflet : rester sous le menu */
+.leaflet-container,
+.leaflet-pane,
+.leaflet-top,
+.leaflet-bottom,
+.leaflet-control-container {
+  z-index: 0 !important;
 }

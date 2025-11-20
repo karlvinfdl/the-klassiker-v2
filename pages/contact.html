@@ -157,10 +157,11 @@
     const evryCoords = [48.6239, 2.4289];
     const map = L.map('map').setView(evryCoords, 15);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.webp', {
-      maxZoom: 19,
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
 
     L.marker(evryCoords)
       .addTo(map)

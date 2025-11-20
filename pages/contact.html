@@ -16,8 +16,8 @@
 
   <!-- Styles -->
   <link rel="shortcut icon" href="/the-klassiker-v2/assets/logo-DJYjo3eZ.webp" />
-  <script type="module" crossorigin src="/the-klassiker-v2/assets/script-YEO58OwG.js"></script>
-  <link rel="stylesheet" crossorigin href="/the-klassiker-v2/assets/script-DnEMIC3J.css">
+  <script type="module" crossorigin src="/the-klassiker-v2/assets/script-CAKFOI44.js"></script>
+  <link rel="stylesheet" crossorigin href="/the-klassiker-v2/assets/script-BAyGv_oa.css">
 </head>
 
 <body class="page-contact">
@@ -153,19 +153,18 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script>
-    // Init Leaflet (coordonnées Évry-Courcouronnes)
-    const evryCoords = [48.6239, 2.4289];
-    const map = L.map('map').setView(evryCoords, 15);
+  const evryCoords = [48.6239, 2.4289];
+  const map = L.map('map').setView(evryCoords, 15);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
 
+  L.marker(evryCoords)
+    .addTo(map)
+    .bindPopup('The Klassiker — Évry-Courcouronnes');
+</script>
 
-    L.marker(evryCoords)
-      .addTo(map)
-      .bindPopup('The Klassiker — Évry-Courcouronnes');
-  </script>
 </body>
 </html>

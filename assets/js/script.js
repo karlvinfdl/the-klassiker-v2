@@ -1,22 +1,23 @@
 // ================== IMPORTS IMAGES (VITE) ==================
-import img1 from "/assets/images/galerie-1.jpg";
-import img2 from "/assets/images/galerie-25.jpg";
-import img3 from "/assets/images/galerie-3.jpg";
-import img4 from "/assets/images/galerie-4.jpg";
-import img5 from "/assets/images/galerie-5.jpg";
-import img6 from "/assets/images/galerie-6.jpg";
-import img7 from "/assets/images/galerie-7.jpg";
-import img8 from "/assets/images/galerie-8.jpg";
-import img9 from "/assets/images/galerie-9.jpg";
-import img10 from "/assets/images/galerie-10.jpg";
-import img11 from "/assets/images/galerie-11.jpg";
-import img12 from "/assets/images/galerie-12.jpg";
-import img13 from "/assets/images/galerie-13.jpg";
-import img14 from "/assets/images/galerie-14.jpg";
-import img15 from "/assets/images/galerie-15.jpg";
-import img16 from "/assets/images/galerie-16.jpg";
-import img17 from "/assets/images/galerie-17.jpg";
-import img18 from "/assets/images/galerie-18.jpg";
+import img1 from "/assets/images/galerie-11.webp";
+import img2 from "/assets/images/galerie-12.webp";
+import img3 from "/assets/images/galerie-13.webp";
+import img4 from "/assets/images/galerie-14.webp";
+import img5 from "/assets/images/galerie-15.webp";
+import img6 from "/assets/images/galerie-16.webp";
+import img7 from "/assets/images/galerie-17.webp";
+import img8 from "/assets/images/galerie-18.webp";
+import img9 from "/assets/images/galerie-19.webp";
+import img10 from "/assets/images/galerie-20.webp";
+import img11 from "/assets/images/galerie-21.webp";
+import img12 from "/assets/images/galerie-22.webp";
+import img13 from "/assets/images/galerie-23.webp";
+import img14 from "/assets/images/galerie-24.webp";
+import img15 from "/assets/images/galerie-25.webp";
+import img16 from "/assets/images/galerie-26.webp";
+import img17 from "/assets/images/galerie-27.webp";
+import img18 from "/assets/images/galerie-28.webp";
+import img19 from "/assets/images/galerie-29.webp";
 
 // tableau d’images utilisé par la galerie
 const galleryImages = [
@@ -38,6 +39,7 @@ const galleryImages = [
   img16,
   img17,
   img18,
+  img19,
 ];
 
 // ================== SCRIPT PRINCIPAL ==================

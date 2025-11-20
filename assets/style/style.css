@@ -971,200 +971,7 @@ a {
 
 /* ================= RESPONSIVE ================= */
 
-/* ≤ 960px */
-@media (max-width: 960px) {
-  .hero-inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .hero-visual {
-    order: -1;
-  }
-
-  .hero-section {
-    padding-top: 24px;
-  }
-
-  .section-inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .cards-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .info-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .order-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .recrutement-page-inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .contact-grid-modern {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-/* ≤ 768px */
-@media (max-width: 768px) {
-  .header-inner {
-    padding-inline: 14px;
-  }
-
-  .brand img {
-    height: 56px;
-  }
-
-  .nav-link {
-    font-size: 1rem;
-  }
-
-  .nav-cta {
-    margin-top: 10px;
-  }
-
-  .nav-social-mobile {
-    display: flex;
-  }
-
-  .delivery-inner {
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .cards-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .info-grid,
-  .order-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .gallery-thumbs {
-    grid-auto-flow: row;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .leaflet-map {
-    min-height: 220px;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-  }
-}
-
-/* ≤ 480px */
-@media (max-width: 480px) {
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hero-photo {
-    padding: 16px;
-  }
-
-  .order-card,
-  .info-block {
-    text-align: center;
-  }
-}
-
-/* 769px → 1024px (tablette) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero-section {
-    padding: 40px 24px 60px;
-  }
-
-  .hero-inner {
-    max-width: 1020px;
-    margin: 0 auto;
-    grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
-    gap: 36px;
-  }
-
-  .hero-lead {
-    max-width: 100%;
-  }
-
-  .hero-photo {
-    padding: 20px;
-  }
-
-  .section-inner {
-    max-width: 1020px;
-    margin: 0 auto;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
-    gap: 36px;
-  }
-
-  .cards-grid {
-    max-width: 1020px;
-    margin: 0 auto;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-  }
-
-  .food-card img {
-    height: 200px;
-  }
-
-  .gallery {
-    max-width: 1020px;
-  }
-
-  .gallery-main img {
-    max-height: 380px;
-  }
-
-  .info-grid {
-    max-width: 1020px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-  }
-
-  .order-grid {
-    max-width: 900px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-  }
-
-  .contact-grid-modern {
-    max-width: 1020px;
-    margin: 0 auto;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-    gap: 26px;
-  }
-
-  .leaflet-map {
-    min-height: 280px;
-  }
-
-  .recrutement-page-inner {
-    max-width: 1020px;
-    margin: 0 auto;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 30px;
-  }
-
-  .delivery-inner {
-    max-width: 1020px;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-    row-gap: 10px;
-  }
-}
-
-/* ========= NAV MOBILE + TABLETTE (jusqu'à 1024px) ========= */
+/* ===== NAV MOBILE + TABLETTE (jusqu'à 1024px) ===== */
 @media (max-width: 1024px) {
 
   .header-inner {
@@ -1219,6 +1026,143 @@ a {
     align-items: center;
     gap: 12px;
     margin-top: 10px;
+  }
+
+  /* Empêcher le scroll horizontal */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* ===== ≤ 960px : réorganisation des grilles / hero ===== */
+@media (max-width: 960px) {
+
+  /* Hero : on passe en 1 colonne, texte puis visuel */
+  .hero-section {
+    padding-top: 24px;
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .hero-visual {
+    order: 0;
+    margin-top: 12px;
+  }
+
+  /* Sections 2 colonnes → 1 colonne */
+  .section-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  /* Grille des cartes : 4 → 2 colonnes */
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Infos / commande : 3 → 2 colonnes */
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .order-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Recrutement : bloc texte au-dessus du bloc formulaire */
+  .recrutement-page-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+
+  /* Contact : on stacke les 2 cartes en 1 colonne */
+  .contact-grid-modern {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-hero {
+    padding: 60px 16px 30px;
+  }
+}
+
+/* ===== ≤ 768px : vrai mobile (1 colonne partout) ===== */
+@media (max-width: 768px) {
+
+  .header-inner {
+    padding-inline: 14px;
+  }
+
+  .brand img {
+    height: 56px;
+  }
+
+  /* Bandeau livraison */
+  .delivery-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    row-gap: 8px;
+  }
+
+  /* Grilles en 1 colonne */
+  .cards-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .info-grid,
+  .order-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Galerie : vignettes sur plusieurs lignes */
+  .gallery-thumbs {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .leaflet-map {
+    min-height: 220px;
+  }
+
+  /* Footer en colonne */
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* ===== ≤ 480px : petits smartphones ===== */
+@media (max-width: 480px) {
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-photo {
+    padding: 16px;
+  }
+
+  .order-card,
+  .info-block {
+    text-align: center;
+  }
+
+  .section,
+  .section-beige,
+  .recrutement-page-section,
+  .page-hero {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .contact-card {
+    padding: 18px 14px 20px;
   }
 }
 
